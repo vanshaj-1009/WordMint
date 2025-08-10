@@ -4,3 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f4f4f9;
+    color: #333333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
