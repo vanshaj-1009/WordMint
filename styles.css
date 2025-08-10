@@ -46,3 +46,20 @@ body {
     display: inline-block;
     text-align: center;
 }
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#userNameDisplay {
+    font-weight: 500;
+    color: #555555;
+}
