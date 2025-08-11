@@ -81,3 +81,19 @@ body {
     transform: translateY(-2px);
 }
 
+
+.btn-primary {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #4cafef;
+    color: white;
+}
+
+.btn-highlight {
+    background-color: #ffb347;
+    color: #333333;
+}
+
