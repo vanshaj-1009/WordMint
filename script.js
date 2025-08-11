@@ -23,3 +23,12 @@ function showLoginForm() {
     document.getElementById('loginUsername').focus();
 }
 
+/* Show the create post form modal */
+function showCreatePostForm() {
+    editingPostId = null;
+    document.getElementById('postModalTitle').textContent = 'Create New Post';
+    document.getElementById('postTitle').value = '';
+    document.getElementById('postContent').value = '';
+    document.getElementById('postModal').classList.remove('hidden');
+    document.getElementById('postTitle').focus();
+}
