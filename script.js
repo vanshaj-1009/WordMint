@@ -1,3 +1,16 @@
+// Global variables to track application state
+let currentUser = null;
+let editingPostId = null;
+let posts = [];
+
+
+
+
+
+
+
+
+
 /* Show the registration form modal */
 function showRegisterForm() {
     document.getElementById('registerModal').classList.remove('hidden');
