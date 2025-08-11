@@ -9,3 +9,4 @@ function showLoginForm() {
     document.getElementById('loginModal').classList.remove('hidden');
     document.getElementById('loginUsername').focus();
 }
+

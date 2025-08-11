@@ -127,3 +127,10 @@ body {
     color: #555555;
     margin-top: auto;
 }
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
