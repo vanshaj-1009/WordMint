@@ -52,43 +52,90 @@
 
             
 
-            <!-- Registration -->
-            <div class="modal">
-            <form>
-                <h3>Create Account</h3>
-                <input placeholder="Username" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button>Create Account</button>
-            </form>
+            <!-- Registration Form -->
+            <div>
+                <div>
+                    <div>
+                        <h3>Create Account</h3>
+                        <button onclick="closeModal('registerModal')">&times;</button>
+                    </div>
+                    <form>
+                        <div>
+                            <label>Username</label>
+                            <input type="text" required>
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" required>
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" required>
+                        </div>
+                        <button type="submit">Create Account</button>
+                    </form>
+                </div>
             </div>
 
-            <!-- Login -->
-            <div class="modal">
-            <form>
-                <h3>Sign In</h3>
-                <input placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button>Sign In</button>
-            </form>
+            <!-- Login Form -->
+            <div>
+                <div>
+                    <div>
+                        <h3>Sign In</h3>
+                        <button onclick="closeModal('loginModal')">&times;</button>
+                    </div>
+                    <form>
+                        <div>
+                            <label>Username</label>
+                            <input type="text" required>
+                        </div>
+                        <div>
+                            <label>Password</label>
+                            <input type="password" required>
+                        </div>
+                        <button type="submit">Sign In</button>
+                    </form>
+                </div>
             </div>
 
             <!-- Create/Edit Post -->
-            <div class="modal">
-            <form>
-                <h3>Create New Post</h3>
-                <input placeholder="Post Title" required>
-                <textarea placeholder="Content" required></textarea>
-                <button>Save Post</button>
-                <button type="button">Cancel</button>
-            </form>
+            <div>
+                <div>
+                    <div>
+                        <h3>Create New Post</h3>
+                        <button onclick="closeModal('postModal')">&times;</button>
+                    </div>
+                    <form>
+                        <div>
+                            <label>Post Title</label>
+                            <input type="text" required>
+                        </div>
+                        <div>
+                            <label>Content</label>
+                            <textarea rows="10" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Save Post</button>
+                            <button type="button" onclick="closeModal('postModal')">Cancel</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <!-- View Post -->
-            <div class="modal">
-            <h3>Post Title</h3>
-            <p>By Author on Date</p>
-            <div>Full Post Content...</div>
+            <div>
+                <div>
+                    <div>
+                        <h3></h3>
+                        <button onclick="closeModal('viewPostModal')">&times;</button>
+                    </div>
+                    <div>
+                        <div>
+                            <p>By <span></span> on <span></span></p>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
 
 
