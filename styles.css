@@ -64,3 +64,20 @@ body {
     display: inline-block;
     text-align: center;
 }
+
+
+.btn-primary:hover {
+    background-color: #5a52d5;
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    background-color: #3a9fd9;
+    transform: translateY(-2px);
+}
+
+.btn-highlight:hover {
+    background-color: #ff9f2e;
+    transform: translateY(-2px);
+}
+
