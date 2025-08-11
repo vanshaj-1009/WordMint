@@ -97,3 +97,20 @@ body {
     color: #333333;
 }
 
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding: 2rem 0;
+}
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 2rem 0 3rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333333;
+}
