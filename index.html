@@ -50,98 +50,94 @@
                 </div>
             </section>
 
-            
+            <!--  -->
 
-            <!-- Registration Form -->
-            <div>
-                <div>
-                    <div>
+             <!-- Registration Form Modal  -->
+            <div id="registerModal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h3>Create Account</h3>
-                        <button onclick="closeModal('registerModal')">&times;</button>
+                        <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
                     </div>
-                    <form>
-                        <div>
-                            <label>Username</label>
-                            <input type="text" required>
+                    <form id="registerForm" class="form">
+                        <div class="form-group">
+                            <label for="regUsername">Username</label>
+                            <input type="text" id="regUsername" required>
                         </div>
-                        <div>
-                            <label>Email</label>
-                            <input type="email" required>
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input type="email" id="regEmail" required>
                         </div>
-                        <div>
-                            <label>Password</label>
-                            <input type="password" required>
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <input type="password" id="regPassword" required>
                         </div>
-                        <button type="submit">Create Account</button>
+                        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
                     </form>
                 </div>
             </div>
 
-            <!-- Login Form -->
-            <div>
-                <div>
-                    <div>
+             <!-- Login Form Modal  -->
+            <div id="loginModal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h3>Sign In</h3>
-                        <button onclick="closeModal('loginModal')">&times;</button>
+                        <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
                     </div>
-                    <form>
-                        <div>
-                            <label>Username</label>
-                            <input type="text" required>
+                    <form id="loginForm" class="form">
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" id="loginUsername" required>
                         </div>
-                        <div>
-                            <label>Password</label>
-                            <input type="password" required>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" required>
                         </div>
-                        <button type="submit">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                    </form>
+                </div>
+            </div>
+<!--  -->
+             <!-- Create/Edit Post Modal  -->
+            <div id="postModal" class="modal hidden">
+                <div class="modal-content modal-large">
+                    <div class="modal-header">
+                        <h3 id="postModalTitle">Create New Post</h3>
+                        <button class="close-btn" onclick="closeModal('postModal')">&times;</button>
+                    </div>
+                    <form id="postForm" class="form">
+                        <div class="form-group">
+                            <label for="postTitle">Post Title</label>
+                            <input type="text" id="postTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postContent">Content</label>
+                            <textarea id="postContent" rows="10" required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Save Post</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('postModal')">Cancel</button>
+                        </div>
                     </form>
                 </div>
             </div>
 
-            <!-- Create/Edit Post -->
-            <div>
-                <div>
-                    <div>
-                        <h3>Create New Post</h3>
-                        <button onclick="closeModal('postModal')">&times;</button>
+            <!--  -->
+             <!-- View Post Modal  -->
+            <div id="viewPostModal" class="modal hidden">
+                <div class="modal-content modal-large">
+                    <div class="modal-header">
+                        <h3 id="viewPostTitle"></h3>
+                        <button class="close-btn" onclick="closeModal('viewPostModal')">&times;</button>
                     </div>
-                    <form>
-                        <div>
-                            <label>Post Title</label>
-                            <input type="text" required>
+                    <div class="view-post-content">
+                        <div class="post-meta">
+                            <p>By <span id="viewPostAuthor"></span> on <span id="viewPostDate"></span></p>
                         </div>
-                        <div>
-                            <label>Content</label>
-                            <textarea rows="10" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit">Save Post</button>
-                            <button type="button" onclick="closeModal('postModal')">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- View Post -->
-            <div>
-                <div>
-                    <div>
-                        <h3></h3>
-                        <button onclick="closeModal('viewPostModal')">&times;</button>
-                    </div>
-                    <div>
-                        <div>
-                            <p>By <span></span> on <span></span></p>
-                        </div>
-                        <div></div>
+                        <div id="viewPostContent" class="post-full-content"></div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
 
 
 
