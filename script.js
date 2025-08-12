@@ -54,6 +54,60 @@ function showCreatePostForm() {
 }
 
 
+/* Handle user registration */
+function handleRegister(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('regUsername').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const password = document.getElementById('regPassword').value;
+
+    // Basic validation
+    if (!username || !email || !password) {
+        showMessage('Please fill in all fields', 'error');
+        return;
+    }
+
+    if (password.length < 6) {
+        showMessage('Password must be at least 6 characters long', 'error');
+        return;
+    }
+
+    // Check if user already exists (simulate checking against a database)
+    const existingUsers = JSON.parse(localStorage.getItem('wordmint_users') || '[]');
+    const userExists = existingUsers.some(user =>
+        user.username === username || user.email === email
+    );
+
+    if (userExists) {
+        showMessage('Username or email already exists', 'error');
+        return;
+    }
+
+    // Create new user
+    const newUser = {
+        id: Date.now(),
+        username: username,
+        email: email,
+        password: password, // In a real app, this would be hashed
+        createdAt: new Date().toISOString()
+    };
+
+    // Save user to localStorage
+    existingUsers.push(newUser);
+    localStorage.setItem('wordmint_users', JSON.stringify(existingUsers));
+
+    // Log the user in
+    currentUser = newUser;
+    saveUserData();
+
+    // Close modal and update UI
+    closeModal('registerModal');
+    updateUI();
+
+    showMessage('Account created successfully! Welcome to WordMint!', 'success');
+}
+
 
 /* Handle user login */
 function handleLogin(event) {
@@ -89,3 +143,5 @@ function handleLogin(event) {
 
     showMessage(`Welcome back, ${user.username}!`, 'success');
 }
+
+
