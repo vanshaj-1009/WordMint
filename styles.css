@@ -147,15 +147,7 @@ body {
 
 
 
-/* Footer */
-.footer {
-    background: white;
-    border-top: 1px solid #e0e0e0;
-    padding: 2rem 0;
-    text-align: center;
-    color: #555555;
-    margin-top: auto;
-}
+
 
 /* Form Styles */
 .form {
@@ -369,4 +361,42 @@ body {
 
 .close-btn:hover {
     color: #333333;
+}
+
+
+/* Footer */
+.footer {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 2rem 0;
+    text-align: center;
+    color: #555555;
+    margin-top: auto;
+}
+
+
+/* Message Container */
+.message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+
+.message {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    animation: slideInRight 0.3s ease;
+}
+
+.message-success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.message-error {
+    background-color: #f44336;
+    color: white;
 }
