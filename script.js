@@ -4,6 +4,55 @@ let editingPostId = null;
 let posts = [];
 
 
+// Initialize the application when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+    setupEventListeners();
+});
+
+/* Initialize the application by loading saved data and setting up the UI */
+function initializeApp() {
+    // Load user data and posts from localStorage
+    loadUserData();
+    loadPosts();
+
+    // Update the UI based on whether user is logged in
+    updateUI();
+
+    // Display all posts regardless of login status
+    displayPosts();
+}
+
+
+/* Load user data from localStorage */
+function loadUserData() {
+    const savedUser = localStorage.getItem('wordmint_currentUser');
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+    }
+}
+
+/* Load posts from localStorage */
+function loadPosts() {
+    const savedPosts = localStorage.getItem('wordmint_posts');
+    if (savedPosts) {
+        posts = JSON.parse(savedPosts);
+    }
+}
+
+/* Save posts to localStorage */
+function savePosts() {
+    localStorage.setItem('wordmint_posts', JSON.stringify(posts));
+}
+
+/* Save user data to localStorage */
+function saveUserData() {
+    if (currentUser) {
+        localStorage.setItem('wordmint_currentUser', JSON.stringify(currentUser));
+    } else {
+        localStorage.removeItem('wordmint_currentUser');
+    }
+}
 
 
 
