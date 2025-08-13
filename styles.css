@@ -400,3 +400,37 @@ body {
     background-color: #f44336;
     color: white;
 }
+
+
+
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    grid-column: 1 / -1;
+}
+
+.empty-state h3 {
+    color: #555555;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    color: #777777;
+    margin-bottom: 2rem;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+
+
+

@@ -31,6 +31,41 @@ function setupEventListeners() {
 }
 
 
+/* Update the UI based on user login status */
+function updateUI() {
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const username = document.getElementById('username');
+
+    if (currentUser) {
+        // User is logged in
+        loginBtn.classList.add('hidden');
+        registerBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+        userNameDisplay.classList.remove('hidden');
+        username.textContent = currentUser.username;
+    } else {
+        // User is not logged in
+        loginBtn.classList.remove('hidden');
+        registerBtn.classList.remove('hidden');
+        logoutBtn.classList.add('hidden');
+        userNameDisplay.classList.add('hidden');
+    }
+}
+
+/* Handle click on New Post button - check if user is logged in */
+function handleNewPostClick() {
+    if (!currentUser) {
+        showMessage('Please login or register to create a post', 'error');
+        showLoginForm();
+        return;
+    }
+
+    showCreatePostForm();
+}
+
 /* Show the registration form modal */
 function showRegisterForm() {
     document.getElementById('registerModal').classList.remove('hidden');
