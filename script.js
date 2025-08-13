@@ -438,3 +438,34 @@ function showMessage(message, type) {
         }
     }, 4000);
 }
+
+
+
+/* Format a date string for display */
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
+/* Escape HTML to prevent XSS attacks */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Make functions available globally for onclick handlers
+window.showRegisterForm = showRegisterForm;
+window.showLoginForm = showLoginForm;
+window.showCreatePostForm = showCreatePostForm;
+window.showEditPostForm = showEditPostForm;
+window.handleNewPostClick = handleNewPostClick;
+window.closeModal = closeModal;
+window.deletePost = deletePost;
+window.viewPost = viewPost;
