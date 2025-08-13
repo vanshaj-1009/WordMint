@@ -190,6 +190,67 @@ function displayPosts() {
 }
 
 
+/* Handle user logout */
+function logout() {
+    currentUser = null;
+    saveUserData();
+    updateUI();
+    showMessage('You have been logged out successfully', 'success');
+}
+
+
+
+/* Handle post creation or editing */
+function handlePostSubmit(event) {
+    event.preventDefault();
+
+    // Check if user is logged in
+    if (!currentUser) {
+        showMessage('Please login to create or edit posts', 'error');
+        showLoginForm();
+        return;
+    }
+
+    const title = document.getElementById('postTitle').value.trim();
+    const content = document.getElementById('postContent').value.trim();
+
+    // Basic validation
+    if (!title || !content) {
+        showMessage('Please fill in all fields', 'error');
+        return;
+    }
+
+    if (editingPostId) {
+        // Edit existing post
+        const postIndex = posts.findIndex(p => p.id === editingPostId);
+        if (postIndex !== -1) {
+            posts[postIndex].title = title;
+            posts[postIndex].content = content;
+            posts[postIndex].updatedAt = new Date().toISOString();
+            showMessage('Post updated successfully!', 'success');
+        }
+    } else {
+        // Create new post
+        const newPost = {
+            id: Date.now(),
+            title: title,
+            content: content,
+            authorId: currentUser.id,
+            authorName: currentUser.username,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+        };
+
+        posts.unshift(newPost); // Add to beginning of array
+        showMessage('Post created successfully!', 'success');
+    }
+
+    // Save posts and update display
+    savePosts();
+    displayPosts();
+    closeModal('postModal');
+}
+
 
 /* Delete a post */
 function deletePost(postId) {
