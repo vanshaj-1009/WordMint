@@ -53,6 +53,59 @@ function showCreatePostForm() {
     document.getElementById('postTitle').focus();
 }
 
+/* Show the edit post form modal*/
+function showEditPostForm(postId) {
+    // Check if user is logged in
+    if (!currentUser) {
+        showMessage('Please login to edit posts', 'error');
+        showLoginForm();
+        return;
+    }
+
+    const post = posts.find(p => p.id === postId);
+    if (!post) return;
+
+    // Check if user is the author of the post
+    if (post.authorId !== currentUser.id) {
+        showMessage('You can only edit your own posts', 'error');
+        return;
+    }
+
+    editingPostId = postId;
+    document.getElementById('postModalTitle').textContent = 'Edit Post';
+    document.getElementById('postTitle').value = post.title;
+    document.getElementById('postContent').value = post.content;
+    document.getElementById('postModal').classList.remove('hidden');
+    document.getElementById('postTitle').focus();
+}
+
+/*Show the view post modal*/
+function viewPost(postId) {
+    const post = posts.find(p => p.id === postId);
+    if (!post) return;
+
+    document.getElementById('viewPostTitle').textContent = post.title;
+    document.getElementById('viewPostAuthor').textContent = post.authorName;
+    document.getElementById('viewPostDate').textContent = formatDate(post.createdAt);
+    document.getElementById('viewPostContent').textContent = post.content;
+
+    document.getElementById('viewPostModal').classList.remove('hidden');
+}
+
+/* Close a modal by its ID*/
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+
+    // Clear form data when closing modals
+    if (modalId === 'registerModal') {
+        document.getElementById('registerForm').reset();
+    } else if (modalId === 'loginModal') {
+        document.getElementById('loginForm').reset();
+    } else if (modalId === 'postModal') {
+        document.getElementById('postForm').reset();
+        editingPostId = null;
+    }
+}
 
 /* Handle user registration */
 function handleRegister(event) {
